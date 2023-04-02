@@ -45,16 +45,25 @@ Once you have the software installed, you can follow these steps to get the appl
 2. Open the solution file in Visual Studio
 3. Open the `appsettings.json` file in the root of the project, and update the `DefaultConnection` string with the connection information for your SQL Server instance:
 
-<ConnectionStrings>
-  <add name="DefaultConnection" connectionString="Server=(localdb)\v17.0;Database=YourDatabaseName;Trusted_Connection=True;" />
-</ConnectionStrings>
+		{
+			"ConnectionStrings": {
+			"DefaultConnection": "Server=(localdb)\mssqllocaldb;Database=DocumentManagement;Trusted_Connection=True;"
+			},
+			"Logging": {
+			"LogLevel": {
+			"Default": "Information",
+			"Microsoft": "Warning",
+			"Microsoft.Hosting.Lifetime": "Information"
+			}
+			},
+			"AllowedHosts": "*"
+		}
 
 
 4. Open the Package Manager Console and run the following command to create the database:
 
-dotnet tool install --global dotnet-sqllocaldb
-
-dotnet sqllocaldb create "v17.0" --version 17.0
+		dotnet tool install --global dotnet-sqllocaldb
+		dotnet sqllocaldb create "v17.0" --version 17.0
 
 5. Build the solution and run the application
 6. Select one of the user interfaces (Razor Pages, WinForms, or WPF) to start using the application
