@@ -1,0 +1,29 @@
+﻿@page
+@model DocumentManageApp.web.Pages.ViewDocumentModel
+@{
+    ViewData["Title"] = "VIEW DOCUMENT";
+}
+
+
+
+<div >
+    <h1 class="text-center">@ViewData["Title"]</h1>
+    <div class="d-flex justify-content-between">
+        <div>
+            <h3>Document No : @Model.Id</h3>
+            <h3>Publish Date : @Model.PublishDate.ToString("yyyy-MM-dd")</h3>
+        </div>
+        <div>
+            <h3>Mentor Name : @Model.FirstName @Model.LastName</h3>
+            <h3>Mentor Position : @Model.Position</h3>
+        </div>
+    </div>
+    <div class="text-center">
+        <h2>@Model.Title</h2>
+        <p>@Model.Description</p>
+        <a asp-page="/Documents">
+            <button class=" btn btn-primary">Back</button>
+        </a>
+    </div>
+
+</div>

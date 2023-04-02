@@ -1,0 +1,61 @@
+﻿@page
+@model DocumentManageApp.web.Pages.Shared.DocumentModel
+@{
+    ViewData["Title"] = "DOCUMENTS";
+}
+<h1 class="text-center">@ViewData["Title"]</h1>
+<div class="d-flex justify-content-between">
+    <div>
+        <form method="post">
+        
+            <input type="text" asp-for="Title" placeholder="Title..." class="" required/>
+            <button class="btn btn-primary" type="submit" >Search</button>
+        </form>
+    </div>   
+    <div>
+        <a asp-page="/AddDocument"><button class="btn btn-primary">Add Document</button></a>
+    </div>
+
+</div>
+
+@if(Model.Documents?.Count > 0)
+{
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><strong>Document Id</strong></th>
+                    <th><strong>Title</strong></th>
+                    <th>Publish Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var document in Model.Documents)
+                {
+                     <tr>
+                        <td>@document.Id</td>
+                        <td>@document.Title</td>
+                        <td>@document.PublishDate.ToString("yyyy-MM-dd")</td>
+                        <td class="text-end">
+
+                            <a  asp-page="/ViewDocument" 
+                                asp-route-id="@document.Id"
+                                asp-route-title="@document.Title"
+                                asp-route-description="@document.Description"
+                                asp-route-publishdate="@document.PublishDate"
+                                asp-route-firstname="@document.FirstName"
+                                asp-route-lastname="@document.LastName"
+                                asp-route-position="@document.Position"> 
+
+                                <button class="btn btn-primary">View</button>
+                            </a>
+                        </td>
+                    </tr>
+                }          
+            </tbody>
+        </table>
+    </div>  
+}
+
+

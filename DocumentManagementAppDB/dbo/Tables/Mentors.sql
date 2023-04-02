@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Mentors]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [FirstName] NVARCHAR(50) NOT NULL, 
+    [LastName] NVARCHAR(50) NOT NULL, 
+    [Position] NVARCHAR(20) NOT NULL
+)
