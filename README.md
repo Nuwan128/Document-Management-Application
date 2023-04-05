@@ -19,7 +19,7 @@ The WinForms UI is a Windows desktop application that allows users to interact w
 
 ### WPF UI
 
-![WPF](https://user-images.githubusercontent.com/73054033/230100012-3f776164-387b-4486-aa27-ad6dd27d9bdd.png)
+![WPF](https://user-images.githubusercontent.com/73054033/230103561-8b97bb87-bc25-4978-84e0-4aca7646d918.png)
 
 The WPF UI is a Windows desktop application that allows users to interact with the application through a modern, customizable interface. Users can perform CRUD operations on documents using this UI.
 
