@@ -13,12 +13,14 @@ namespace DocumentManageApp.Desktop
 {
     public partial class AddDocumentForm : Form
     {
+        private readonly int _id;
         private readonly IDatabaseData _db;
         private readonly DataGridView _documentDataGridView;
 
-        public AddDocumentForm(IDatabaseData db, DataGridView documentDataGridView)
+        public AddDocumentForm(int id,IDatabaseData db, DataGridView documentDataGridView)
         {
             InitializeComponent();
+            _id = id;
             _db = db;
             _documentDataGridView = documentDataGridView;
         }
@@ -70,15 +72,25 @@ namespace DocumentManageApp.Desktop
           
             try
             {
-                _db.InsertDocument(TitleText.Text,
-                              DescriptionRichTextBox.Text,
-                              PublishDate.Value,
-                              FirtNameTextBox.Text,
-                              LastNameTextBox.Text,
-                              PositionTextBox.Text);
-
-
-                //_documentDataGridView.DataSource = null;
+                if (_id.Equals(0))
+                {
+                    _db.InsertDocument(TitleText.Text,
+                             DescriptionRichTextBox.Text,
+                             PublishDate.Value,
+                             FirtNameTextBox.Text,
+                             LastNameTextBox.Text,
+                             PositionTextBox.Text);
+                }
+                else
+                {
+                    _db.UpdateDocument(_id,
+                                  TitleText.Text,
+                                  DescriptionRichTextBox.Text,
+                                  PublishDate.Value,
+                                  FirtNameTextBox.Text,
+                                  LastNameTextBox.Text,
+                                  PositionTextBox.Text);
+                }
                 _documentDataGridView.DataSource = _db.DisplayDocuments();
             }
             catch (Exception ex)

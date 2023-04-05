@@ -80,7 +80,7 @@ namespace DocumentManageApp.Desktop
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            AddDocumentForm addDocument = new AddDocumentForm(_db, DocumentsDataGridView);
+            AddDocumentForm addDocument = new AddDocumentForm(0,_db, DocumentsDataGridView);
 
             addDocument.ShowDialog();
         }
@@ -123,7 +123,7 @@ namespace DocumentManageApp.Desktop
                     try
                     {
 
-                        UpdateDocument updateDocument = new UpdateDocument(id, _db, DocumentsDataGridView);
+                        AddDocumentForm updateDocument = new AddDocumentForm(id, _db, DocumentsDataGridView);
                         updateDocument.ShowDialog();
                     }
                     catch (Exception)

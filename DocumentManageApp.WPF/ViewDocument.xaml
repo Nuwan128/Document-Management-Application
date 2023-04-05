@@ -1,0 +1,47 @@
+﻿<Window x:Class="DocumentManageApp.WPF.ViewDocument"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DocumentManageApp.WPF"
+        mc:Ignorable="d"
+        Title="ViewDocument" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" Margin="20" FontSize="22" FontWeight="Bold">Documents</TextBlock>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" Margin="5">Document No:</TextBlock>
+        <TextBlock x:Name="IdTextBlock" Grid.Column="2" Grid.Row="1" Margin="5"/>
+
+        <TextBlock Grid.Column="1" Grid.Row="2" Margin="5">Publish Date:</TextBlock>
+        <TextBlock x:Name="PublishDateTextBlock" Grid.Column="2" Grid.Row="2" Margin="5"/>
+
+        <TextBlock Grid.Column="4" Grid.Row="1" Margin="5">Mentor Name:</TextBlock>
+        <TextBlock x:Name="NameTxtxBlock" Grid.Column="5" Grid.Row="1" Margin="5"/>
+
+        <TextBlock Grid.Column="4" Grid.Row="2" Margin="5">Mentor Position:</TextBlock>
+        <TextBlock x:Name="PositionTextBlock" Grid.Column="5" Grid.Row="2" Margin="5"/>
+
+        <TextBox Margin="5" x:Name="DescriptionTextBlock" IsReadOnly="True" TextWrapping="Wrap" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="5"/>
+
+        <Button Margin="5" x:Name="BackButton" Grid.Column="3" Grid.Row="4" Click="BackButton_Click">Back</Button>
+
+
+    </Grid>
+</Window>

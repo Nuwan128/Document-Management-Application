@@ -5,8 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DocumentManageApp.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Document Application" Height="600" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left" Margin="35,20,0,20" FontSize="22" FontWeight="Bold">Documents</TextBlock>
+
+        <TextBox Width="200" Margin="20 0 5 0"  x:Name="serchText" Grid.Column="1" Grid.Row="1"/>
+        <Button Width="100" x:Name="SerchButton" Grid.Column="2" Grid.Row="1" Click="SerchButton_Click">Serach</Button>
+
+
+        <Button Width="100"  Margin="0 0 20 0" x:Name="AddButton" Grid.Column="5" Grid.Row="1" Click="AddButton_Click">Add</Button>
+        <DataGrid x:Name="documentsDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="5" Margin="20 20" Height="400">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="*" />
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding PublishDate, StringFormat='{}{0:d}'}" Width="*"/>
+                <DataGridTemplateColumn Header="View" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="ViewButton" Click="ViewButton_Click" Content="View" Command="{Binding DataContext.ViewCommand, ElementName=documentsDataGrid}" CommandParameter="{Binding}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Update" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="UpdateButton" Click="UpdateButton_Click" Content="Update" Command="{Binding DataContext.ViewCommand, ElementName=documentsDataGrid}" CommandParameter="{Binding}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Remove" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="RemoveButton" Click="RemoveButton_Click" Content="Remove" Command="{Binding DataContext.ViewCommand, ElementName=documentsDataGrid}" CommandParameter="{Binding}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+
+
+
 
     </Grid>
 </Window>
