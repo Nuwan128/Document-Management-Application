@@ -12,7 +12,7 @@ The Razor Pages UI allows users to interact with the application through a web i
 
 ### WinForms UI
 
-![WinForms UI screenshot](/Images/winforms-screenshot.png "WinForms UI")
+![WinForms UI screenshot](/Images/winforms-screenshot.png)
 
 The WinForms UI is a Windows desktop application that allows users to interact with the application through a traditional desktop interface. Users can perform CRUD operations on documents using this UI.
 
