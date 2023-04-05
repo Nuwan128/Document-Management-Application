@@ -6,14 +6,14 @@ This is a document management application that allows users to create, read, upd
 
 
 ### Razor Pages UI
-C:\Users\Acer\Pictures\Screenshots\Document APP Images\razor-pages-screenshot.png
-![Razor Pages UI screenshot](/Images/razor-pages-screenshot.png "Razor Pages UI")
+
 ![razor-pages-screenshot](https://user-images.githubusercontent.com/73054033/230004893-d01768c8-b760-4c3a-a673-76b7d2d15131.png)
+
 The Razor Pages UI allows users to interact with the application through a web interface. Users can perform CRUD operations on documents using this UI.
 
 ### WinForms UI
 
-![WinForms UI screenshot](/Images/winforms-screenshot.png)
+![winforms-screenshot](https://user-images.githubusercontent.com/73054033/230010754-e5c0db21-d259-4cc1-a837-f6098ef2acf5.png)
 
 The WinForms UI is a Windows desktop application that allows users to interact with the application through a traditional desktop interface. Users can perform CRUD operations on documents using this UI.
 
