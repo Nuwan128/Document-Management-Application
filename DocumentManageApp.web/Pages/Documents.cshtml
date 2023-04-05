@@ -13,7 +13,7 @@
         </form>
     </div>   
     <div>
-        <a asp-page="/AddDocument"><button class="btn btn-primary">Add Document</button></a>
+        <a class="btn btn-primary" asp-page="/AddDocument">Add Document</a>
     </div>
 
 </div>
@@ -41,7 +41,7 @@
                         <td>@document.PublishDate.ToString("yyyy-MM-dd")</td>
                         <td class="text-end">
 
-                            <a  asp-page="/ViewDocument" 
+                            <a  asp-page="/ViewDocument"  button class="btn btn-primary"
                                 asp-route-id="@document.Id"
                                 asp-route-title="@document.Title"
                                 asp-route-description="@document.Description"
@@ -50,32 +50,23 @@
                                 asp-route-lastname="@document.LastName"
                                 asp-route-position="@document.Position"> 
 
-                                <button class="btn btn-primary">View</button>
+                                View
                             </a>
                         </td>
                          <td class="text-center">
-                            <a  asp-page="/UpdateDocument" asp-route-id="@document.Id">
-                                <button class="btn btn-success">Update</button>
-                            </a>
+                            <a class="btn btn-success" asp-page="/UpdateDocument" asp-route-id="@document.Id">Update</a>
                         </td>
-                         <td class="text-start">
-                            <a  asp-page="/RemoveDocument" asp-route-id="@document.Id">
-                                <button class="btn btn-danger">Remove</button>
-                            </a>
+                        <td class="text-start">
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@document.Id">
+                                <button type="submit" class="btn btn-danger">Remove</button>
+                            </form>
                         </td>
+
                     </tr>
                     
                 }          
             </tbody>
         </table>
-        <div class="container my-5">
-            <h2>nomal caontainer</h2>
-            <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu
-                lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
-            <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu 
-                lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
-        </div>
-       
     </div>
      
 }

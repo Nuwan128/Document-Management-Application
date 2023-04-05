@@ -26,19 +26,8 @@ namespace DocumentManageApp.web.Pages.Shared
 
         public void OnGet()
         {
-
-
-            //Documents = _db.DisplayDocuments();
-
-
-            Console.WriteLine("hi");
-
-            //Documents = _db.SearchDocument(Title);
-
             if (SearchEnabled == true)
             {
-                Console.WriteLine("hello");
-
                 Documents = _db.SearchDocument(Title);
             }
             else
@@ -56,6 +45,18 @@ namespace DocumentManageApp.web.Pages.Shared
                 Title
             });
         }
+        public  IActionResult OnPostDelete(int id)
+        {
+            var document = _db.ViewDocumentById(id) ;
+            if (document == null)
+            {
+                return NotFound();
+            }
+
+            _db.RemoveDocumentById(document.Id);
+            return RedirectToPage();
+        }
+
     }
 
 
