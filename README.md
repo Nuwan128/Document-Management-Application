@@ -4,10 +4,11 @@ This is a document management application that allows users to create, read, upd
 
 ## User Interfaces
 
+
 ### Razor Pages UI
 
 ![Razor Pages UI screenshot](/Images/razor-pages-screenshot.png "Razor Pages UI")
-
+![razor-pages-screenshot](https://user-images.githubusercontent.com/73054033/230004893-d01768c8-b760-4c3a-a673-76b7d2d15131.png)
 The Razor Pages UI allows users to interact with the application through a web interface. Users can perform CRUD operations on documents using this UI.
 
 ### WinForms UI
