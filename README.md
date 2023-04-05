@@ -12,7 +12,6 @@ This is a document management application that allows users to create, read, upd
 The Razor Pages UI allows users to interact with the application through a web interface. Users can perform CRUD operations on documents using this UI.
 
 ### WinForms UI
-
 ![Win-Form](https://user-images.githubusercontent.com/73054033/230100073-5a216575-c208-4244-9e5d-a777be2dc131.png)
 
 The WinForms UI is a Windows desktop application that allows users to interact with the application through a traditional desktop interface. Users can perform CRUD operations on documents using this UI.
