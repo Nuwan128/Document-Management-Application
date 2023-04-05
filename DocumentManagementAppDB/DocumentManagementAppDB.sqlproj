@@ -67,6 +67,7 @@
     <Build Include="dbo\Tables\Stored Procedures\sp_Mentors_Insert_Mentor.sql" />
     <Build Include="dbo\Tables\Stored Procedures\sp_Documents_Insert_Doucument.sql" />
     <Build Include="dbo\Tables\Stored Procedures\spDocuments_Search_Document.sql" />
+    <Build Include="dbo\Tables\Stored Procedures\sp_Documents_Update_Doucument.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Tables\Publish Scripts\DocumentManagementAppDB.publish.xml" />

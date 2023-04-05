@@ -11,21 +11,22 @@ using System.Windows.Forms;
 
 namespace DocumentManageApp.Desktop
 {
-    public partial class AddDocumentForm : Form
+    public partial class UpdateDocument : Form
     {
+        private readonly int _id;
         private readonly IDatabaseData _db;
         private readonly DataGridView _documentDataGridView;
-
-        public AddDocumentForm(IDatabaseData db, DataGridView documentDataGridView)
+        public UpdateDocument(int id, IDatabaseData db, DataGridView documentDataGridView)
         {
-            InitializeComponent();
+            _id = id;
             _db = db;
             _documentDataGridView = documentDataGridView;
+            InitializeComponent();
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
+        private void UpdateButton_Click(object sender, EventArgs e)
         {
-           
+            // Validate the form fields
             List<string> emptyFields = new List<string>();
 
             if (string.IsNullOrWhiteSpace(TitleText.Text))
@@ -67,15 +68,16 @@ namespace DocumentManageApp.Desktop
                 return;
             }
 
-          
+            // Save the data to the database
             try
             {
-                _db.InsertDocument(TitleText.Text,
-                              DescriptionRichTextBox.Text,
-                              PublishDate.Value,
-                              FirtNameTextBox.Text,
-                              LastNameTextBox.Text,
-                              PositionTextBox.Text);
+                _db.UpdateDocument(_id,
+                                   TitleText.Text,
+                                   DescriptionRichTextBox.Text,
+                                   PublishDate.Value,
+                                   FirtNameTextBox.Text,
+                                   LastNameTextBox.Text,
+                                   PositionTextBox.Text);
 
 
                 //_documentDataGridView.DataSource = null;

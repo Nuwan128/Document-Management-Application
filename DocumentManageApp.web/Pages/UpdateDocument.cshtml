@@ -1,0 +1,42 @@
+﻿@page
+@model DocumentManageApp.web.Pages.UpdateDocumentModel
+@{
+    ViewData["Title"] = "UPDATE DOCUMENT";
+}
+
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+
+    <form method="post">
+        
+        <div class="form-group">
+            <label asp-for="Document.Title" >Title</label>
+            <input type="text" asp-for="Document.Title" required/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Document.Description" >Description</label>
+            <textarea asp-for="Document.Description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label asp-for="Document.PublishDate" >Publish Date</label>
+            <input type="date" asp-for="Document.PublishDate" required/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Document.FirstName" >Mentor's First Name</label>
+            <input type="text" asp-for="Document.FirstName" required/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Document.LastName" >Mentor's Last Name</label>
+            <input type="text" asp-for="Document.LastName" required/>
+        </div>
+         <div class="form-group">
+            <label asp-for="Document.Position" >Position</label>
+            <input type="text" asp-for="Document.Position" required/>
+        </div>
+        <div class="form-group">
+            <button class=" btn btn-primary">Add</button>
+        </div>
+        
+    </form>
+</div>

@@ -79,5 +79,32 @@ namespace DataAccessLibrary.Data
 
             return _db.LoadData<DocumentViewModel,dynamic>(sql,new { id },connectionStringName,false).First();
         }
+
+        public void UpdateDocument(int id, 
+                                   string title,
+                                   string description,
+                                   DateTime publishDate,
+                                   string firstName,
+                                   string lastName,
+                                   string position)
+        {
+            MentorModel mentor = _db.LoadData<MentorModel, dynamic>("dbo.sp_Mentors_Insert_Mentor",
+                                                                    new { firstName, lastName, position },
+                                                                    connectionStringName,
+                                                                    true).First();
+
+
+            _db.SaveData("dbo.sp_Documents_Update_Doucument",
+                         new
+                         {
+                             id,
+                             title,
+                             description,
+                             publishDate,
+                             mentorId = mentor.Id,
+                         },
+                         connectionStringName,
+                         true);
+        }
     }
 }

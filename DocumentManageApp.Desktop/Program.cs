@@ -2,6 +2,7 @@ using DataAccessLibrary.Data;
 using DataAccessLibrary.Databases;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System.IO;
 
 
@@ -16,27 +17,35 @@ namespace DocumentManageApp.Desktop
         [STAThread]
         static void Main()
         {
+            var builder = new HostBuilder()
+                .ConfigureAppConfiguration((config) =>
+                {
+                    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                })
+                .ConfigureServices((hostContext, services) =>
+                {
+                    services
+                        .AddTransient<IDatabaseData, SqlData>()
+                        .AddTransient<ISqlDataAccess, SqlDataAccess>()
+                        .AddTransient<DocumentApplication>()
+                        .AddTransient<AddDocumentForm>();
+                });
 
+            var host = builder.Build();
 
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            using var scope = host.Services.CreateScope();
 
-            var configuration = builder.Build();
+            var services = scope.ServiceProvider;
 
-            var services = new ServiceCollection()
-                .AddTransient<IDatabaseData, SqlData>()
-                .AddTransient<ISqlDataAccess, SqlDataAccess>()
-                .AddTransient<DocumentApplication>()
-                .AddTransient<AddDocumentForm>()
-                .AddSingleton<IConfiguration>(configuration)
-                .BuildServiceProvider();
-
-            //services.GetRequiredService<AddDocumentForm>();
-            // Launch the application
-            Application.Run(services.GetRequiredService<DocumentApplication>());
-
-
+            try
+            {
+                var documentApplication = services.GetRequiredService<DocumentApplication>();
+                documentApplication.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($" erro occurd , {ex}");
+            }
 
         }
 

@@ -44,7 +44,7 @@
             // 
             // AddButton
             // 
-            AddButton.Location = new Point(560, 109);
+            AddButton.Location = new Point(657, 109);
             AddButton.Name = "AddButton";
             AddButton.Size = new Size(75, 23);
             AddButton.TabIndex = 8;
@@ -73,7 +73,7 @@
             // 
             HeadingLabel.AutoSize = true;
             HeadingLabel.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            HeadingLabel.Location = new Point(272, 22);
+            HeadingLabel.Location = new Point(321, 22);
             HeadingLabel.Name = "HeadingLabel";
             HeadingLabel.Size = new Size(162, 37);
             HeadingLabel.TabIndex = 6;
@@ -91,7 +91,7 @@
             DocumentsDataGridView.Name = "DocumentsDataGridView";
             DocumentsDataGridView.ReadOnly = true;
             DocumentsDataGridView.RowTemplate.Height = 25;
-            DocumentsDataGridView.Size = new Size(563, 316);
+            DocumentsDataGridView.Size = new Size(660, 316);
             DocumentsDataGridView.TabIndex = 10;
             // 
             // Id
@@ -123,14 +123,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(710, 502);
+            ClientSize = new Size(820, 519);
             Controls.Add(DocumentsDataGridView);
             Controls.Add(AddButton);
             Controls.Add(SearchButton);
             Controls.Add(SearchTextBox);
             Controls.Add(HeadingLabel);
-            MaximumSize = new Size(726, 541);
-            MinimumSize = new Size(726, 541);
+            MaximumSize = new Size(836, 558);
+            MinimumSize = new Size(836, 558);
             Name = "DocumentApplication";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Document Application";

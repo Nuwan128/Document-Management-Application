@@ -36,6 +36,14 @@ namespace DocumentManageApp.Desktop
                 UseColumnTextForButtonValue = true
 
             };
+            var updateButtonColumn = new DataGridViewButtonColumn
+            {
+                HeaderText = "Update",
+                Name = "Update",
+                Text = "Update",
+                UseColumnTextForButtonValue = true
+
+            };
             var RemoveButtonColumn = new DataGridViewButtonColumn
             {
                 HeaderText = "Remove",
@@ -45,6 +53,7 @@ namespace DocumentManageApp.Desktop
             };
 
             DocumentsDataGridView.Columns.Add(viewButtonColumn);
+            DocumentsDataGridView.Columns.Add(updateButtonColumn);
             DocumentsDataGridView.Columns.Add(RemoveButtonColumn);
             DocumentsDataGridView.CellContentClick += DocumentsDataGridView_CellContentClick;
 
@@ -73,18 +82,67 @@ namespace DocumentManageApp.Desktop
         {
             AddDocumentForm addDocument = new AddDocumentForm(_db, DocumentsDataGridView);
 
-            addDocument.Show();
+            addDocument.ShowDialog();
         }
 
         private void DocumentsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int id = Convert.ToInt32(DocumentsDataGridView.Rows[e.RowIndex].Cells["Id"].Value);
+
+            if (e.ColumnIndex == DocumentsDataGridView.Columns["View"].Index && e.RowIndex >= 0)
+            {
+
+
+                DialogResult result = MessageBox.Show("Do you want to view this document",
+                                                      "View Field Confirmation",
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Information);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        ViewDocument viewDocument = new ViewDocument(_db, id);
+                        viewDocument.ShowDialog();
+                    }
+                    catch (Exception)
+                    {
+                        throw new Exception();
+                    }
+
+                }
+            }
+
+            if (e.ColumnIndex == DocumentsDataGridView.Columns["Update"].Index && e.RowIndex >= 0)
+            {
+                DialogResult result = MessageBox.Show("Do you want to update this document",
+                                                      "View Field Confirmation",
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Information);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+
+                        UpdateDocument updateDocument = new UpdateDocument(id, _db, DocumentsDataGridView);
+                        updateDocument.ShowDialog();
+                    }
+                    catch (Exception)
+                    {
+                        throw new Exception();
+                    }
+
+                }
+            }
+
             if (e.ColumnIndex == DocumentsDataGridView.Columns["Remove"].Index && e.RowIndex >= 0)
             {
 
-                int id = Convert.ToInt32(DocumentsDataGridView.Rows[e.RowIndex].Cells["Id"].Value);
                 //string title = DocumentsDataGridView.Rows[e.RowIndex].Cells["Title"].Value.ToString();
 
-                DialogResult result = MessageBox.Show("Do you want to remove this document", "Delete Field Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Do you want to remove this document",
+                                                      "Delete Field Confirmation",
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
                     try
@@ -99,25 +157,8 @@ namespace DocumentManageApp.Desktop
 
                 }
             }
-            if (e.ColumnIndex == DocumentsDataGridView.Columns["View"].Index && e.RowIndex >= 0)
-            {
-                int id = Convert.ToInt32(DocumentsDataGridView.Rows[e.RowIndex].Cells["Id"].Value);
 
-                DialogResult result = MessageBox.Show("Do you want to view this document", "View Field Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (result == DialogResult.Yes)
-                {
-                    try
-                    {
-                        ViewDocument viewDocument = new ViewDocument(_db, id);
-                        viewDocument.Show();
-                    }
-                    catch (Exception)
-                    {
-                        throw new Exception();
-                    }
 
-                }
-            }
         }
 
     }

@@ -28,6 +28,8 @@
                     <th><strong>Title</strong></th>
                     <th>Publish Date</th>
                     <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -51,11 +53,31 @@
                                 <button class="btn btn-primary">View</button>
                             </a>
                         </td>
+                         <td class="text-center">
+                            <a  asp-page="/UpdateDocument" asp-route-id="@document.Id">
+                                <button class="btn btn-success">Update</button>
+                            </a>
+                        </td>
+                         <td class="text-start">
+                            <a  asp-page="/RemoveDocument" asp-route-id="@document.Id">
+                                <button class="btn btn-danger">Remove</button>
+                            </a>
+                        </td>
                     </tr>
+                    
                 }          
             </tbody>
         </table>
-    </div>  
+        <div class="container my-5">
+            <h2>nomal caontainer</h2>
+            <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu
+                lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+            <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu 
+                lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+        </div>
+       
+    </div>
+     
 }
 
 
