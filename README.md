@@ -6,19 +6,19 @@ This is a document management application that allows users to create, read, upd
 
 ### Razor Pages UI
 
-![Razor Pages UI screenshot](./Images/razor-pages-screenshot.png "Razor Pages UI")
+![Razor Pages UI screenshot](/Images/razor-pages-screenshot.png "Razor Pages UI")
 
 The Razor Pages UI allows users to interact with the application through a web interface. Users can perform CRUD operations on documents using this UI.
 
 ### WinForms UI
 
-![WinForms UI screenshot](./Images/winforms-screenshot.png "WinForms UI")
+![WinForms UI screenshot](/Images/winforms-screenshot.png "WinForms UI")
 
 The WinForms UI is a Windows desktop application that allows users to interact with the application through a traditional desktop interface. Users can perform CRUD operations on documents using this UI.
 
 ### WPF UI
 
-![WPF UI screenshot](./Images/wpf-screenshot.png "WPF UI")
+![WPF UI screenshot](/Images/wpf-screenshot.png "WPF UI")
 
 The WPF UI is a Windows desktop application that allows users to interact with the application through a modern, customizable interface. Users can perform CRUD operations on documents using this UI.
 
