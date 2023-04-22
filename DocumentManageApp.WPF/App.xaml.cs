@@ -24,6 +24,7 @@ namespace DocumentManageApp.WPF
                 .ConfigureAppConfiguration((config) =>
                 {
                     config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                    //config.AddUserSecrets<App>();
                 })
                 .ConfigureServices((hostContext, services) =>
                 {

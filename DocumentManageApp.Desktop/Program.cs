@@ -21,6 +21,7 @@ namespace DocumentManageApp.Desktop
                 .ConfigureAppConfiguration((config) =>
                 {
                     config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                    config.AddUserSecrets(typeof(Program).Assembly);
                 })
                 .ConfigureServices((hostContext, services) =>
                 {

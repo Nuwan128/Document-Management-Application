@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>47d9aab3-db48-4176-9165-e5060e93d39b</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,5 +14,9 @@
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLibrary\DataAccessLibrary.csproj" />
   </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.0" />
+	</ItemGroup>
+
 
 </Project>

@@ -81,13 +81,14 @@ namespace DocumentManageApp.Desktop
         private void AddButton_Click(object sender, EventArgs e)
         {
             AddDocumentForm addDocument = new AddDocumentForm(0,_db, DocumentsDataGridView);
-
+            //AddDocumentForm.
             addDocument.ShowDialog();
         }
 
         private void DocumentsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int id = Convert.ToInt32(DocumentsDataGridView.Rows[e.RowIndex].Cells["Id"].Value);
+
 
             if (e.ColumnIndex == DocumentsDataGridView.Columns["View"].Index && e.RowIndex >= 0)
             {

@@ -5,6 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <UserSecretsId>5178a85e-aa66-412f-8ae1-fbd3a427f8b1</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,7 +26,10 @@
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
 	</ItemGroup>
+
+
 
 	<ItemGroup>
 		<ProjectReference Include="..\DataAccessLibrary\DataAccessLibrary.csproj" />

@@ -13,6 +13,7 @@ namespace DocumentManageApp.web
             builder.Services.AddRazorPages();
             builder.Services.AddTransient<ISqlDataAccess,SqlDataAccess>();
             builder.Services.AddTransient<IDatabaseData, SqlData>();
+            builder.Configuration.AddUserSecrets<Program>();
 
             var app = builder.Build();
 
