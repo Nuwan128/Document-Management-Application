@@ -32,7 +32,9 @@ namespace DocumentManageApp.WPF
                         .AddTransient<ISqlDataAccess, SqlDataAccess>()
                         .AddTransient<IDatabaseData, SqlData>()
                         .AddTransient<MainWindow>()
+                        .AddTransient<AddDocument>()
                         .AddTransient<ViewDocument>();
+
 
                 });
             var host = builder.Build();

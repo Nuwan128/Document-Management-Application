@@ -28,10 +28,8 @@
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
 	</ItemGroup>
-
-
-
+	
 	<ItemGroup>
-		<ProjectReference Include="..\DataAccessLibrary\DataAccessLibrary.csproj" />
+	  <ProjectReference Include="..\DataAccessLibrary\DataAccessLibrary.csproj" />
 	</ItemGroup>
 </Project>
